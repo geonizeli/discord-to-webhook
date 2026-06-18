@@ -52,9 +52,9 @@ struct AttachmentPayload<'a> {
 impl Settings {
     fn from_env() -> Result<Self> {
         let discord_token = require_env("DISCORD_TOKEN")?;
-        let webhook_url = require_env("N8N_WEBHOOK_URL")?
+        let webhook_url = require_env("WEBHOOK_URL")?
             .parse::<Url>()
-            .context("N8N_WEBHOOK_URL must be a valid URL")?;
+            .context("WEBHOOK_URL must be a valid URL")?;
         let channel_id = require_env("CHANNEL_ID")?
             .parse::<u64>()
             .context("CHANNEL_ID must be a Discord numeric channel id")?;
